@@ -1,0 +1,10 @@
+.progressBox {
+    width: 33.33%;
+}
+
+.east {
+    position: relative;
+    margin-top: 50px;
+    right: -60px;
+    top: 50%;
+}
