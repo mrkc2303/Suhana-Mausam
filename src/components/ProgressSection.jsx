@@ -6,10 +6,6 @@ import CircularProgress from "./CircularProgress";
 import _ from "lodash";
 
 function ProgressSection() {
-    function RadialSeparators() {
-        
-        
-      }
     const perDegree = 0.00277777777;
     const turns = 1 / 8;
     return(
