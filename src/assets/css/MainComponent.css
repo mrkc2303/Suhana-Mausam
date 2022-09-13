@@ -1,5 +1,10 @@
+.tempDiv {
+    background-color: #fdefce;
+    border-radius: 25px;
+}
+
 .mainIcon {
-    height: 7em;
+    height: 10em;
 }
 
 .temp {
@@ -9,4 +14,8 @@
 .unitSelect {
     font-size: 1.6em;
     font-weight: 600;
+}
+
+.skyline {
+    height: 20em;
 }

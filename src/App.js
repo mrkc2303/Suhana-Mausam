@@ -1,12 +1,17 @@
 import './App.css';
-import MainComponent from './components/MainComponent';
-import ProgressSection from './components/ProgressSection';
+import LeftSection from './components/LeftSection';
+import RightSection from './components/RightSection';
+import MainContainer from './components/MainContainer'
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
-      <MainComponent />
-      <ProgressSection />
+      <Header />
+      <MainContainer>
+        <LeftSection />
+        <RightSection />
+      </MainContainer>
     </div>
   );
 }

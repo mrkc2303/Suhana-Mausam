@@ -1,25 +1,29 @@
 import React from 'react';
 import Drizzle from '../assets/weather-icons-master/design/fill/drizzle.svg';
 import '../assets/css/MainComponent.css';
-
+import {countries} from 'country-data';
+import Skyline from '../assets/images/skyline.webp';
+ 
 function MainComponent() {
-const percentage = 66;
+// const percentage = 66;
   return (
-    <div className='d-flex flex-column'>
-        <h2>Delhi, IN</h2>
-        <div className="tempDiv d-flex align-items-start justify-content-center">
-            <img src={Drizzle} className="mainIcon mx-4"/>
+    <div className='tempDiv d-flex flex-row px-5 py-3 justify-content-between'>
+        <div className='d-flex flex-row'>
             <div>
-                <span className='temp'>27°</span>
-                <h4 className='text-start px-4'>Rain</h4>
+                <h2 className='text-start'>Delhi</h2>
+                <h4 className='text-secondary text-start'>{countries["IN"].name}</h4>
+                <div className='d-flex align-items-start'>
+                    <div>
+                        <span className='temp'>27</span>
+                        <h4 className='text-start pr-4'>Rain</h4>
+                    </div>
+                </div>
+                {/* <span className='small'>Updated as of: Friday, September 9, 2022 6:51:35 PM (+05:30)</span> */}
+                <span className='small'>Updated as of: <br/>6:51:35 PM (+05:30)</span>
             </div>
-            <div className='d-flex flex-column mx-4'>
-                <span className="unitSelect">C</span>
-                <span>F</span>
-            </div>
+            <img src={Drizzle} alt='Weather Icon' className='mainIcon mx-4 align-self-center'/>
         </div>
-        {/* <span className='small'>Updated as of: Friday, September 9, 2022 6:51:35 PM (+05:30)</span> */}
-        <span className='small'>Updated as of: 6:51:35 PM (+05:30)</span>
+        <img src={Skyline} alt='Skyline Background' className='skyline' />
     </div>
   );
 }

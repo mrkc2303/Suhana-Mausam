@@ -16,12 +16,14 @@ function ProgressSection() {
                     {(value) => <CircularProgressbar value={value} text={`${value}%`} />}
                 </CircularProgress>
             </div>
+
             <div className='m-4' style={{ width: 150, height: 150 }}>
                 <span>Humidity</span>
                 <CircularProgress valueStart={0} valueEnd={67}>
                     {(value) => <CircularProgressbar value={value} text={`${value}%`} />}
                 </CircularProgress>
             </div>
+
             <div className='m-4' style={{ width: 150, height: 150 }}>
                 <span>UV Index</span>
                 <CircularProgress valueStart={0} valueEnd={7}>
@@ -32,10 +34,11 @@ function ProgressSection() {
                     </CircularProgressbarWithChildren>}
                 </CircularProgress>
             </div>
+
             <div className='m-4' style={{ width: 150, height: 150 }}>
                 <span>Max Wind</span>
                 <span className='east'>East</span>
-                <CircularProgress valueStart={0} valueEnd={5}>
+                <CircularProgress valueStart={0} valueEnd={5} circleRatio={0.5}>
                     {(value) => <CircularProgressbarWithChildren value={value} text={`${value}`} styles={{
                         // Customize the root svg element
                         root: {},

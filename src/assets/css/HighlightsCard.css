@@ -1,0 +1,40 @@
+.highlightContainer {
+    height: 180px;
+}
+
+.highlightCard {
+    height: 100%;
+    width: 50%;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.highlightCard > .bi-brightness-high {
+    font-size: 7em;
+    color: #b4b4b4;
+    position: relative;
+    left: 46%;
+    bottom: 130%;
+    /* left: 47%;
+    bottom: 47%;
+    z-index: 100; */
+}
+
+.highlightCard > .bi-water {
+    font-size: 7em;
+    color: #b4b4b4;
+    position: relative;
+    left: 46%;
+    bottom: 130%;
+}
+
+.highlightCard img {
+    height: 7em;
+}
+
+.circle {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}

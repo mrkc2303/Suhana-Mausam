@@ -1,0 +1,13 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.temp::after {
+    content: "°";
+    font-size: 0.5em;
+    position: relative;
+    bottom: 45px;
+    left: 5px;
+}
