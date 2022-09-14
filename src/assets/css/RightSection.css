@@ -1,5 +1,21 @@
 .rightSec {
-    background-color: #f7f9fb;
-    height: 100vh;
+    background-color: #f0f0f0;
+    /* height: 100%; */
     border-radius: 25px;
+}
+
+.addCityCard {
+    width: 80%;
+    height: 100px;
+    background-color: #fdefce;
+    border-radius: 25px;
+}
+
+.addCityCard img {
+    height: 80%;
+}
+
+.addCityCard button {
+    background-color: #bca3a2;
+    color: #fefefe;
 }

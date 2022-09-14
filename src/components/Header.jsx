@@ -1,8 +1,14 @@
 import React from "react";
 import '../assets/css/Header.css';
 
-function Header() {
+function Header( {changeLocation} ) {
   var today = new Date();
+  const searchLocation = (event) => {
+    if(event.key == 'Enter') {
+      changeLocation(event.target.value);
+    }
+  }
+  
   return (
     <div className="header d-flex align-items-center justify-content-between px-5">
       <div>
@@ -24,6 +30,7 @@ function Header() {
             placeholder="Search"
             aria-label="Search"
             aria-describedby="search-addon"
+            onKeyPress={ searchLocation }
           />
         </div>
       </div>
