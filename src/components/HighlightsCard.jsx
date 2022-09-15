@@ -52,11 +52,11 @@ function HighlightsCard({ sunrise, sunset, dataPol }) {
                     <h5 className='text-start ms-4 mt-3 fw-bold'>Sunrise & Sunset</h5>
                     <div className='d-flex justify-content-between mx-4'>
                         <div>
-                            <img src={Sunrise} />
+                            <img src={Sunrise} alt='Sunrise Icon' />
                             <span className='ms-3 fw-bold'>{sunriseTime}</span>
                         </div>
                         <div>
-                            <img src={Sunset} />
+                            <img src={Sunset} alt='Sunset Icon' />
                             <span className='ms-3 fw-bold'>{sunsetTime}</span>
                         </div>
                     </div>
