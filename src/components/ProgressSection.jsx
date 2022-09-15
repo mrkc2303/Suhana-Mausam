@@ -6,7 +6,7 @@ import CircularProgress from "./CircularProgress";
 import _ from "lodash";
 
 function ProgressSection() {
-    const perDegree = 0.00277777777;
+    // const perDegree = 0.00277777777;
     const turns = 1 / 8;
     return(
         <div className="progressBox d-flex flex-wrap">

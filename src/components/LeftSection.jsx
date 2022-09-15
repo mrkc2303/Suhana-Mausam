@@ -1,7 +1,7 @@
 import React from 'react';
 import HighlightsCard from './HighlightsCard';
 import MainComponent from './MainComponent';
-import ProgressSection from './ProgressSection';
+// import ProgressSection from './ProgressSection';
 
 function LeftSection( {weatherData, dataPol} ) {
   return (

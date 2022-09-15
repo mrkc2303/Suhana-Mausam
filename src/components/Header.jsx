@@ -4,7 +4,7 @@ import '../assets/css/Header.css';
 function Header( {changeLocation} ) {
   var today = new Date();
   const searchLocation = (event) => {
-    if(event.key == 'Enter') {
+    if(event.key === 'Enter') {
       changeLocation(event.target.value);
     }
   }
