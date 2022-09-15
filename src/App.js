@@ -4,12 +4,14 @@ import LeftSection from './components/LeftSection';
 import RightSection from './components/RightSection';
 import MainContainer from './components/MainContainer'
 import Header from './components/Header';
+import { render } from '@testing-library/react';
 // import { getAllUsers } from './assets/services/weatherCall';
 
 function App() {
   const [data, setData] = useState({});
   const [dataPol, setDataPol] = useState({});
   const [location, setLocation] = useState('Delhi');
+  const [loading, setLoading] = useState(false);
   
   const API = "c28f28d025ab2bd31b4e38bab8a5cf16";
   const units = "metric";
@@ -40,6 +42,7 @@ function App() {
           console.log(e.message);
         }
         console.log(data);
+        setLoading(true);
     }catch(error) {
       console.log(error.message);
     }
@@ -47,16 +50,22 @@ function App() {
 
   const onSearchChange = (event) => {
     setLocation(event);
-  }
+  } 
 
   return (
     <div className="App"> 
       {/* {getAllUsers()} */}
       <Header changeLocation={ onSearchChange } />
-      <MainContainer>
-        <LeftSection weatherData={ data } dataPol={ dataPol } />
-        <RightSection />
-      </MainContainer>
+      {loading ? (
+        <MainContainer>
+          <LeftSection weatherData={ data } dataPol={ dataPol } />
+          <RightSection />
+        </MainContainer>
+      ) : (<div class="loading spinner-border" role="status">
+            <span class="sr-only"></span>
+          </div>
+      )}
+      
     </div>
   );
 }

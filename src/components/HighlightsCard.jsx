@@ -2,11 +2,11 @@ import React from 'react';
 import '../assets/css/HighlightsCard.css';
 import Sunrise from '../assets/weather-icons-master/design/fill/sunrise.svg';
 import Sunset from '../assets/weather-icons-master/design/fill/sunset.svg';
-// import aqiCalculator from "aqi-calculator";
+import aqiCalculator from "aqi-calculator";
 
 function HighlightsCard({ sunrise, sunset, dataPol }) {
-    const aqiColors = ["#08e303", "#ff7d01", "#ff0000", "#8e3f98", "#7d0121"];
-    const aqiName = ["Good", "Fair", "Moderate", "Poor", "Very Poor"];
+    const aqiColors = ["#00cc00", "#64cd02", "#fcbf26", "#ff9900", "#ff0000", "#a4292a"];
+    const aqiName = ["Good", "Satisfactory", "Moderate", "Poor", "Severe", "Hazardous"];
 
     const sunriseDate = new Date(sunrise * 1000);
     const sunriseTime =  sunriseDate.toLocaleTimeString("en-US");
@@ -14,20 +14,36 @@ function HighlightsCard({ sunrise, sunset, dataPol }) {
     const sunsetDate = new Date(sunset * 1000);
     const sunsetTime =  sunsetDate.toLocaleTimeString("en-US");
 
-    // var DATA = [
-    //     {
-    //       datetime: "2022-09-14T13:00:00.000Z", //Taking the 24-hour average concentration  - change when you use this example
-    //       pm25: dataPol.list ? dataPol.list[0].components.pm2_5 : null,
-    //       pm10: dataPol.list ? dataPol.list[0].components.pm10 : null,
-    //       so2: dataPol.list ? dataPol.list[0].components.so2 : null,
-    //       no: dataPol.list ? dataPol.list[0].components.no : null,
-    //       nox: null,
-    //       no2: dataPol.list ? dataPol.list[0].components.no2 : null,
-    //       o3: dataPol.list ? dataPol.list[0].components.o3 : null,
-    //       co: null,
-    //     }];
-    // var AQI = aqiCalculator(DATA);
+    var DATA = [
+        {
+          datetime: "2022-09-15T22:00:00.000Z", //Taking the 24-hour average concentration  - change when you use this example
+          pm25: dataPol.list ? dataPol.list[0].components.pm2_5 : null,
+          pm10: dataPol.list ? dataPol.list[0].components.pm10 : null,
+          so2: dataPol.list ? dataPol.list[0].components.so2 : null,
+          no: dataPol.list ? dataPol.list[0].components.no : null,
+          nox: null,
+          no2: dataPol.list ? dataPol.list[0].components.no2 : null,
+          o3: dataPol.list ? dataPol.list[0].components.o3 : null,
+          co: dataPol.list ? (dataPol.list[0].components.co)/1000 : null,
+        }];
+    var AQI = aqiCalculator(DATA);
     // console.log(AQI);
+    
+    var aqiIndex;
+    if(AQI <= 50) {
+        aqiIndex=0;
+    } else if(AQI >= 51 && AQI <= 100) {
+        aqiIndex=1;
+    } else if(AQI >= 101 && AQI <= 200) {
+        aqiIndex=2;
+    } else if(AQI >= 201 && AQI <= 300) {
+        aqiIndex=3;
+    } else if(AQI >= 301 && AQI <= 400) {
+        aqiIndex=4;
+    } else {
+        aqiIndex=5;
+    }
+
     return (
         <div className='mt-5'>
             <h2 className='text-start mb-4'>Today's Highlights</h2>
@@ -51,10 +67,10 @@ function HighlightsCard({ sunrise, sunset, dataPol }) {
                     <h5 className='text-start ms-4 my-3 fw-bold'>Air Quality Index</h5>
                     <div className='d-flex justify-content-between mx-4'>
                         <div>
-                            <div className='circle d-flex justify-content-center align-items-center mb-2' style={{backgroundColor: aqiColors[(dataPol.list ? dataPol.list[0].main.aqi-1  : 0)]}}>
-                                <span className='text-white h5 mb-0'>{dataPol.list ? dataPol.list[0].main.aqi : 0}</span>
+                            <div className='circle d-flex justify-content-center align-items-center mb-2' style={{backgroundColor: aqiColors[aqiIndex]}}>
+                                <span className='text-white h5 mb-0'>{AQI}</span>
                             </div>
-                            <span className='fw-bold'>{aqiName[1]}</span>
+                            <span className='fw-bold'>{aqiName[aqiIndex]}</span>
                         </div>
                         <div className='container ms-5 mb-3 d-flex'>
                             <div className='d-flex flex-row align-items-start'>
