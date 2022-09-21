@@ -19,3 +19,10 @@
     background-color: #bca3a2;
     color: #fefefe;
 }
+
+.cityCard {
+    width: 80%;
+    height: 70px;
+    background-color: #fdefce;
+    border-radius: 25px;
+}

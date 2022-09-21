@@ -14,9 +14,13 @@ function HighlightsCard({ sunrise, sunset, dataPol }) {
     const sunsetDate = new Date(sunset * 1000);
     const sunsetTime =  sunsetDate.toLocaleTimeString("en-US");
 
+    const aqiDate = new Date((dataPol.list ? dataPol.list[0].dt : null) * 1000);
+    const aqiTime = aqiDate.toISOString(); 
+
+
     var DATA = [
         {
-          datetime: "2022-09-15T22:00:00.000Z", //Taking the 24-hour average concentration  - change when you use this example
+          datetime: aqiTime, //Taking the 24-hour average concentration  - change when you use this example
           pm25: dataPol.list ? dataPol.list[0].components.pm2_5 : null,
           pm10: dataPol.list ? dataPol.list[0].components.pm10 : null,
           so2: dataPol.list ? dataPol.list[0].components.so2 : null,
@@ -27,7 +31,7 @@ function HighlightsCard({ sunrise, sunset, dataPol }) {
           co: dataPol.list ? (dataPol.list[0].components.co)/1000 : null,
         }];
     var AQI = aqiCalculator(DATA);
-    // console.log(AQI);
+    console.log(aqiTime);
     
     var aqiIndex;
     if(AQI <= 50) {

@@ -14,9 +14,6 @@ function App() {
   
   const API = "c28f28d025ab2bd31b4e38bab8a5cf16";
   const units = "metric";
-  // useEffect(() => {
-  //   getAllUsers();
-  // }, []);
 
   useEffect(() => {
     async function getAllUsers() {
@@ -56,7 +53,7 @@ function App() {
       {loading ? (
         <MainContainer>
           <LeftSection weatherData={ data } dataPol={ dataPol } />
-          <RightSection />
+          <RightSection cityName={data.name} changeLocation={ onSearchChange } />
         </MainContainer>
       ) : (<div class="loading spinner-border" role="status">
             <span class="sr-only"></span>
