@@ -9,8 +9,13 @@ function RightSection({ cityName, changeLocation }) {
   // var listItems;
 
   const addCity = () => {
-    city.push(cityName);
-    localStorage.setItem('city', JSON.stringify(city));
+    if(city.includes(cityName) === false) {
+      city.push(cityName);
+      localStorage.setItem('city', JSON.stringify(city));
+    } else {
+      alert('City already added');
+    }
+    
     // list();
     // console.log(localStorage.getItem('city'));
   };

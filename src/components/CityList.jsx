@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import SingleCity from './SingleCity';
 
 const CityList = ({ city, changeLocation }) => {

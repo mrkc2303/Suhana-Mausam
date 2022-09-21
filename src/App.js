@@ -21,20 +21,27 @@ function App() {
       try{
           const response = await fetch(url);
           const data = await response.json();
-          setData(data);
-          const lat = data.coord.lat;
-          const lon = data.coord.lon;
-          const urlPol = `https://api.openweathermap.org/data/2.5/air_pollution?appid=${API}&lat=${lat}&lon=${lon}`;
-          try {
-            const responsePol = await fetch(urlPol);
-            const dataPol = await responsePol.json();
-            setDataPol(dataPol);
-            console.log(dataPol);
-          }catch(e) {
-            console.log(e.message);
+          if(data.cod === 200) {
+            setData(data);
+            const lat = data.coord.lat;
+            const lon = data.coord.lon;
+            const urlPol = `https://api.openweathermap.org/data/2.5/air_pollution?appid=${API}&lat=${lat}&lon=${lon}`;
+            try {
+              const responsePol = await fetch(urlPol);
+              const dataPol = await responsePol.json();
+              setDataPol(dataPol);
+              console.log(dataPol);
+            }catch(e) {
+              console.log(e.message);
+            }
+            console.log(data);
+            setLoading(true);
+          } else if(data.cod === "404") {
+            alert("City not found");
+          } else {
+            alert("Server Issue");
           }
-          console.log(data);
-          setLoading(true);
+          
       }catch(error) {
         console.log(error.message);
       }

@@ -6,6 +6,7 @@ function Header( {changeLocation} ) {
   const searchLocation = (event) => {
     if(event.key === 'Enter') {
       changeLocation(event.target.value);
+      event.target.value = '';
     }
   }
   
