@@ -12,7 +12,8 @@ function App() {
   const [location, setLocation] = useState('Delhi');
   const [loading, setLoading] = useState(false);
   
-  const API = "c28f28d025ab2bd31b4e38bab8a5cf16";
+  console.log(process.env.REACT_APP_KEY)
+  const API = process.env.REACT_APP_KEY;
   const units = "metric";
 
   useEffect(() => {
